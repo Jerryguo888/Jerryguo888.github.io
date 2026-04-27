@@ -1,1 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Image Styling Practice</title>
+    <style>
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            width: 100%;
+            max-width: 1200px;
+        }
 
+        .img-left {
+            width: 33%;
+            height: 300px;
+            border-radius: 18px;
+            object-fit: cover;
+        }
+
+        .img-middle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .img-right {
+            width: 33%;
+            height: 300px;
+            object-fit: fill;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="image-container">
+        <img src="https://cdn-origin.cool-style.com.tw/cool/2026/01/FH6_Screenshots_PO_02-Festival-Drift-16x9-Logo_3840x2160_RGB-bf619619c4f0dc27189b-1900x1080-1.jpg" alt="driftcars" class="img-left">
+        <img src="https://media.tenor.com/x1aTyM3VNf4AAAAM/gomi-gomi-dog.gif" alt="WTHdog" class="img-middle">
+        <img src="https://resize-image.vocus.cc/resize?norotation=true&quality=80&url=https%3A%2F%2Fimages.vocus.cc%2Ff75ece61-341d-4998-8cb8-ccafe24f3ba7.jpg&width=1200&sign=MhRaR5F91pXeGjPeTolOfCqMuLFr-nttSpWL1P0zMpE" alt="eldarypic ahhhh" class="img-right">
+    </div>
+
+</body>
+</html>
