@@ -1,1 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Design Implementation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f6f6f6;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .main-container {
+            background-color: #ffffff;
+            width: 550px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 450px;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .header-title {
+            font-size: 13px;
+            color: #2f2f2f;
+            margin: 0;
+        }
+
+        .info-btn {
+            height: 22px;
+            border-radius: 8px;
+            background-color: #ffffff;
+            border: 1px solid #2f2f2f;
+            font-family: 'Roboto', sans-serif;
+            font-size: 13px;
+            color: #2f2f2f;
+            cursor: pointer;
+            padding: 0 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s ease;
+        }
+
+        .info-btn:hover {
+            background-color: #f0f0f0;
+        }
+
+        .content-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 450px;
+        }
+
+        .image-placeholder {
+            width: 450px;
+            height: 240px;
+            background-image: url('https://cms-assets.xboxservices.com/assets/ea/63/ea631f12-8e7f-4460-9e5f-8dd1734d891c.jpg?n=0399951111277_Gallery_1350x759_01.jpg');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+
+        .details-panel {
+            width: 450px;
+            display: flex;
+            flex-direction: column;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            margin-top: 0;
+            transition: max-height 0.35s ease-in-out, opacity 0.3s ease-in-out, margin-top 0.3s ease-in-out;
+        }
+
+        .detail-row {
+            background-color: #6ee37b;
+            color: #2f2f2f;
+            font-size: 13px;
+            padding: 6px 10px;
+            margin-bottom: 2px;
+        }
+
+        .detail-row:nth-child(even) {
+            background-color: #92eba6;
+        }
+
+        .show {
+            max-height: 150px;
+            opacity: 1;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <div class="header-bar">
+            <h2 class="header-title">預覽</h2>
+            <button id="toggleInfoBtn" class="info-btn">查看資訊</button>
+        </div>
+        
+        <div class="content-area">
+            <div class="image-placeholder"></div>
+
+            <div id="infoDetails" class="details-panel">
+                <div class="detail-row">修改日期：2017/10/12</div>
+                <div class="detail-row">類型：JPG</div>
+                <div class="detail-row">大小：466.97KB</div>
+                <div class="detail-row">路徑：\\designcenter.qnap.com.tw\DesignCenter\PM...\A_Image2PDF\v2\sample</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const btn = document.getElementById('toggleInfoBtn');
+        const detailsPanel = document.getElementById('infoDetails');
+
+        btn.addEventListener('click', function() {
+            detailsPanel.classList.toggle('show');
+            
+            if (detailsPanel.classList.contains('show')) {
+                btn.textContent = '收起資訊';
+            } else {
+                btn.textContent = '查看資訊';
+            }
+        });
+    </script>
+
+</body>
+</html>
