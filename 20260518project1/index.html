@@ -1,1 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 物件屬性操作 (放大版)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            /* === 修改：增加外圍邊距，讓畫面不擁擠 === */
+            padding: 50px; 
+            color: #333;
+            /* === 關鍵修改：加大基礎字型 (原本大約 16px) === */
+            font-size: 20px; 
+        }
+        .card {
+            background: white;
+            /* === 修改：加大卡片內邊距 === */
+            padding: 40px; 
+            border-radius: 12px; /* 圓角大一點 */
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15); /* 陰影深一點點 */
+            /* === 關鍵修改：將卡片最大寬度從 500px 加大到 900px === */
+            max-width: 900px; 
+            margin: 0 auto;
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 3px solid #ecf0f1; /* 底線加粗 */
+            padding-bottom: 15px;
+            /* === 修改：標題大幅放大 === */
+            font-size: 2.5em; /* 相對於基礎字型的 2.5 倍 */
+            margin-top: 0;
+        }
+        .result-section {
+            /* === 修改：加大區塊之間的間距 === */
+            margin-top: 40px; 
+        }
+        strong {
+            /* === 修改：加重說明文字的粗細與大小 === */
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        #properties-list {
+            margin-top: 15px;
+            /* === 修改：增加行距，更易讀 === */
+            line-height: 1.6;
+        }
+        pre {
+            background: #2d3748;
+            color: #a0aec0;
+            /* === 修改：加大程式碼區塊內邊距 === */
+            padding: 25px; 
+            border-radius: 8px;
+            overflow-x: auto;
+            /* === 關鍵修改：加大程式碼區塊的字型 === */
+            font-size: 18px; 
+            /* === 修改：增加程式碼行距 === */
+            line-height: 1.7; 
+        }
+        .highlight {
+            color: #3182ce;
+            font-weight: bold;
+            /* === 修改：強調文字再大一點 === */
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
 
+<div class="card">
+    <h2>物件操作結果</h2>
+    
+    <div class="result-section">
+        <strong>1. 原始物件的所有屬性 (Properties)：</strong>
+        <p id="properties-list" class="highlight"></p>
+    </div>
+
+    <div class="result-section">
+        <strong>2. 刪除 <code style="color:#e53e3e; background:#fff5f5; padding: 2px 6px; border-radius:4px">age</code> 屬性後的物件內容：</strong>
+        <pre id="output-object"></pre>
+    </div>
+</div>
+
+<script>
+    // 題目提供的 Sample object (功能邏輯不變)
+    var Person = {
+        firstName : "Tony",
+        lastName : "Lee",
+        age : 50,
+        eyeColor : "Blue"
+    };
+
+    // 1. 列出所有的屬性 (Keys)
+    var allProperties = Object.keys(Person).join(', ');
+    document.getElementById('properties-list').textContent = allProperties;
+
+    // 2. 刪除 age 屬性
+    delete Person.age;
+
+    // 3. 列印刪除後的物件結構 (功能邏輯不變)
+    document.getElementById('output-object').textContent = JSON.stringify(Person, null, 4);
+</script>
+
+</body>
+</html>
