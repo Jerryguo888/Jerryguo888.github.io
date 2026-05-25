@@ -1,1 +1,56 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circle Properties</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        .output {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f4f4f4;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Circle Properties Calculator Demonstration</h2>
+    
+    <div class="output" id="results">
+        </div>
+
+    <script>
+        // 1. Function to calculate circumference
+        // Note: Using the exact spelling from your assignment prompt (calcCircumfrence)
+        function calcCircumfrence(radius) {
+            let circumference = 2 * Math.PI * radius;
+            // Rounding to 2 decimal places for cleaner output
+            console.log("The circumference is " + circumference.toFixed(2));
+            return "The circumference is " + circumference.toFixed(2);
+        }
+
+        // 2. Function to calculate area
+        function calcArea(radius) {
+            let area = Math.PI * radius * radius;
+            // Rounding to 2 decimal places for cleaner output
+            console.log("The area is " + area.toFixed(2));
+            return "The area is " + area.toFixed(2);
+        }
+
+        // Demonstration: Pass a radius to the functions and display on the webpage
+        let testRadius = 5;
+        let resultsDiv = document.getElementById("results");
+
+        resultsDiv.innerHTML = "<strong>Testing with radius: " + testRadius + "</strong><br><br>";
+        resultsDiv.innerHTML += calcCircumfrence(testRadius) + "<br>";
+        resultsDiv.innerHTML += calcArea(testRadius) + "<br>";
+    </script>
+
+</body>
+</html>
